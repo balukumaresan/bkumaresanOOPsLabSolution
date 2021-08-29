@@ -28,13 +28,13 @@ public class CredentialTest {
 		System.out.println("4. Legal");
 		String dept = deptMap.get(sc.nextInt());
 
-		Employee employee = new Employee(fName, lName, dept);
-		CredentialService gs = new CredentialService(employee);
-		gs.generateEmailAddress();
-		gs.generatePassword();
-		gs.showCredentials();
-		sc.close();
+		Employee employee = new Employee(fName, lName);
+		CredentialService cs = new CredentialService();
 
+		String email = cs.generateEmailAddress(employee, dept);
+		char[] pw = cs.generatePassword();
+		cs.showCredentials(employee, email, pw);
+		sc.close();
 	}
 
 }
